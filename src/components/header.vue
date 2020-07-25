@@ -11,7 +11,7 @@
             </ul>
             <form>
                 <label>
-                  <q-input class="searchbox" dark borderless v-model="text" :readonly="readonly" :disable="disable">
+                  <q-input class="searchbox" dark borderless value="">
                     <template v-slot:append>
                       <q-icon name="search" />
                     </template>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  data () {
+  data: () => {
     return {
       navigators: [],
       buttons: [],
