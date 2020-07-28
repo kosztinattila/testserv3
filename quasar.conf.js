@@ -102,7 +102,9 @@ module.exports = configure(function (ctx) {
       importStrategy: 'all',
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Notify'
+      ]
     },
 
     // animations: 'all', // --- includes all animations
