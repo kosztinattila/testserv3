@@ -91,7 +91,7 @@
             },
             uploadProduct () {
                 this.$q.notify({
-                                   message: 'Successsful uplaod',
+                                   message: 'Successsful upload!',
                                    color: 'primary',
                                    avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
                                    actions: [
