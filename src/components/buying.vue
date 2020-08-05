@@ -1,56 +1,53 @@
 <template>
-    <div class="row wrap justify-center">
-        <div class="col-md-6 col-xs-12">
-            <div class="constructor">
-                <div class="content">
-                    <q-form @submit="uploadProduct">
-                        <q-input class="input" outlined label="Product name" v-model:key="productName" :rules="[ val => val && val.length > 4 || 'Please type something']"/>
-                        <q-input class="input" outlined label="Product price" v-model:key="productPrice" :rules="[ val => val && val.length > 4 || 'Please type something']"/>
-                        <q-select outlined v-model="model" :options="options" label="Quantity"
-                                  v-model:key="productQuantity" required/>
-                        <q-input type="submit"></q-input>
-                    </q-form>
-                    <form>
-                        <p>Product Constructor</p>
-                        <div>
-                            <q-uploader
-                                    url="http://localhost:4444/upload"
-                                    label="Upload picture"
-                                    color="goldenrod"
-                                    text-color="white"
-                                    style="max-width: 300px; background: goldenrod; color: white"/>
-                            <div v-if="image" class="delete-profile-image">
-                                <q-btn @click="removeImage" style="background: goldenrod; color: white" label="Remove"/>
-                            </div>
-                            <div v-if="!image">
-                                <input type="file" class="change-profile-image" @change="onFileChange" ref="fileInput"
-                                       accept="image/*"/>
-                            </div>
-                            <div>
-                                <img class="q-uploader__file relative-position q-uploader__file--img" alt=""/>
-                            </div>
-                        </div>
-                    </form>
+    <div class="row wrap">
+
+        <div class="col-md-6 col-xs-12 constructor">
+
+            <p>Product Constructor</p>
+            <q-form @submit="uploadProduct">
+                <q-input class="input" outlined label="Product name" v-model:key="productName" :rules="[ val => val && val.length > 4 || 'Please type something']"/>
+                <q-input class="input" outlined label="Product price" v-model:key="productPrice" :rules="[ val => val && val.length > 4 || 'Please type something']"/>
+                <q-select outlined v-model="model" :options="options" label="Quantity"
+                          v-model:key="productQuantity" required/>
+
+            </q-form>
+            <form>
+                <div>
+                    <div v-if="image" class="delete-profile-image">
+                        <q-btn @click="removeImage" style="background: goldenrod; color: white" label="Remove"/>
+                    </div>
+                    <div v-if="!image">
+                        <input type="file" class="change-profile-image" @change="onFileChange" ref="fileInput"
+                               accept="image/*"/>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
-        <div class="col-md-6 col-sm-12">
+
+        <div class="col-md-2 col-sm-12">
+
+        </div>
+
+        <div class="col-md-6 col-sm-12 preview">
             <form class="preview-form full-width">
                 <p>Preview</p>
-                <div v-if="image">
-                    <img class="profile-image" :src="image" alt=""/>
+                <div class="profile-image col" v-if="image">
+                    <img :src="image" alt=""/>
                 </div>
                 <div>{{productName}}</div>
-                <div v-if="productQuantity">{{stock}}</div>
+                <div style="color: darkgreen" v-if="productQuantity>0">In Stock</div>
+                <div style="color: firebrick" v-else-if="productQuantity">Out of Stock</div>
                 <div>
                     <div v-if="productPrice">{{productPrice + " Ft"}}</div>
                 </div>
-                <q-input v-model="data" label="asdasd"></q-input>
                 <div class="row">
                     <q-btn class="details col" style="background: goldenrod; color: white" label="Details"/>
-                    <q-btn class="addToBasket col" v-if="productQuantity" style="background: goldenrod; color: white"
+                    <div class="col-1">
+
+                    </div>
+                    <q-btn class="addToBasket col" v-if="productQuantity>0" style="background: goldenrod; color: white"
                            label="Add to Basket"/>
-                    <q-btn class="notifyMe col" v-if="!productQuantity" style="background: goldenrod; color: white"
+                    <q-btn class="notifyMe col" v-else style="background: goldenrod; color: white"
                            label="Notify me"/>
                 </div>
             </form>
@@ -66,10 +63,9 @@
             image: null,
             productDetails: "Details",
             productPrice: "",
-            options: ["1", "2", "3", "4", "5"],
+            options: ["0","1", "2", "3", "4", "5"],
             productName: localStorage.getItem('storedData'),
             productQuantity: "",
-            stock: "In Stock"
         }),
         methods: {
             onFileChange(e) {
@@ -113,12 +109,18 @@
 </script>
 
 <style scoped>
+    .row {
+        justify-content: center;
+        min-width: 250px
+    }
+    .constructor, .preview {
+        margin-top: 5rem;
+        width: 20rem;
 
-    .constructor {
-        margin-top: 100px;
     }
 
-    p {
+    .preview {
+        position: relative;
     }
 
     h3 {
@@ -128,11 +130,6 @@
 
     form {
         text-align: left;
-        float: left;
-        margin-left: 5rem;
-        margin-right: 5rem;
-        position: relative;
-        horiz-align: center;
         margin-bottom: 1rem;
     }
 
@@ -142,7 +139,11 @@
         max-width: 15rem;
         max-height: 10rem;
     }
+    .profile-image {
+        display: flex;
+        justify-content: center;
 
+    }
     .delete-profile-image {
         margin: auto;
         margin-bottom: 1rem;
@@ -150,29 +151,5 @@
         justify-content: center;
         position: relative;
 
-    }
-
-    .preview-form {
-
-    }
-
-    .row {
-        width: auto;
-    }
-
-    .col {
-        height: auto;
-        width: auto;
-        display: inline-block;
-        font-size: 1rem;
-        margin-right: .5rem;
-    }
-
-    .content * {
-        margin-bottom: 1rem;
-    }
-
-    .material-icons {
-        margin-bottom: 0;
     }
 </style>
