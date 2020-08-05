@@ -1,81 +1,116 @@
 <template>
-    <div class="row">
-        <img class="logo" src="../assets/logo.png" alt="">
-            <div class="left-side">
-            <router-link to="/home"><h1>GOLDEN LEAVES</h1></router-link>
+    <div class="row main-row">
+
+        <div class="col q-pa-md">
+            <div class="row">
+                <div class="col container">
+                    <img class="logo" src="../assets/logo.png" alt="">
+                    <router-link to="/home"><h1>GOLDEN LEAVES</h1></router-link>
+                </div>
             </div>
-            <div class="right-side">
-            <ul>
-              <li><router-link to="/buying" exact><q-btn style="background: goldenrod; color: white" label="Buy now"></q-btn></router-link></li>
-              <li><router-link to="/selling" exact><q-btn style="background: goldenrod; color: white" label="Sell"></q-btn></router-link></li>
+        </div>
+
+        <div class="col right-side q-pa-md">
+            <ul class="row">
+                <q-btn flat round dense icon="menu" class="col q-mr-sm" />
+                <li><router-link class="col" to="/buying" exact><q-btn style="background: goldenrod; color: white" label="Buy now"></q-btn></router-link></li>
+                <li><router-link class="col" to="/selling" exact><q-btn style="background: goldenrod; color: white" label="Sell"></q-btn></router-link></li>
             </ul>
             <form>
                 <label>
-                  <q-input class="searchbox" dark borderless value="">
-                    <template v-slot:append>
-                      <q-icon name="search" />
-                    </template>
-                  </q-input>
+                    <q-input class="search-bar row" dark borderless value="">
+                        <template v-slot:append>
+                            <q-icon name="search" />
+                        </template>
+                    </q-input>
                 </label>
             </form>
-            </div>
         </div>
+
+    </div>
 </template>
 
 <script>
-export default {
-  data: () => {
-    return {
-      navigators: [],
-      buttons: [],
-      search: ''
+    export default {
+        data: () => {
+            return {
+                navigators: [],
+                buttons: [],
+                search: ''
+            }
+        }
     }
-  }
-}
 </script>
 
 <style scoped>
-    .row {
+    .main-row {
         font-family: 'Lato', sans-serif;
         font-size: 20px;
         color: white;
         background-color: #262626;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        min-width: 350px;
     }
     .right-side {
         display: flex;
-        margin-left: auto;
+        float: right;
     }
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
         text-decoration: none;
-
     }
     li {
-        float: left;
         margin-right: 1rem;
     }
     li:hover, :visited, :link, :active {
         text-decoration: none;
         color: white;
     }
-
-    .left-side{
+    .container {
+        align-items: center;
         display: flex;
-        align-items: center
+
+    }
+    .q-pa-md {
+        margin-left: 1rem;
+        padding: 0;
+
+    }
+    .row {
+        display: flex;
+        align-items: center;
+
     }
     h1 {
         padding-left: .5rem;
         font-size: 30px;
         margin: 0;
+        white-space: nowrap;
+        display: flex;
     }
     .logo {
         height: 2rem;
         width: 2rem;
     }
-
+    form {
+        display: flex;
+    }
+    @media only screen and (max-width: 500px) {
+        li {
+            display: none;
+        }
+    }
+    @media only screen and (min-width: 500px) {
+        .q-mr-sm {
+            display: none;
+        }
+    }
+    @media (min-width: 0) {
+        .col {
+            flex: none
+        }
+    }
 </style>
