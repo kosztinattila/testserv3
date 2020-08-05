@@ -50,7 +50,7 @@
         background-color: #262626;
         display: flex;
         justify-content: space-between;
-        min-width: 350px;
+        min-width: 360px;
     }
     .right-side {
         display: flex;
@@ -98,12 +98,12 @@
     form {
         display: flex;
     }
-    @media only screen and (max-width: 500px) {
-        li {
+    @media only screen and (max-width: 800px) {
+        li, form {
             display: none;
         }
     }
-    @media only screen and (min-width: 500px) {
+    @media only screen and (min-width: 800px) {
         .q-mr-sm {
             display: none;
         }
