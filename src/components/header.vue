@@ -17,7 +17,7 @@
                 <li><router-link class="col" to="/selling" exact><q-btn style="background: goldenrod; color: white" label="Sell"></q-btn></router-link></li>
             </ul>
             <form>
-                <label>
+                <label class="label">
                     <q-input class="search-bar row" dark borderless value="">
                         <template v-slot:append>
                             <q-icon name="search" />
@@ -112,5 +112,13 @@
         .col {
             flex: none
         }
+    }
+    .search-bar {
+      height: 2.572em;
+      border-radius: 0.2em;
+      padding-left: 1em;
+      margin-right: 2em;
+      width: 13em;
+      text-transform: uppercase;
     }
 </style>
