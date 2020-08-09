@@ -9,7 +9,9 @@
   <H6> In this project, I attempt to create a functioning webstore and use all the neccessary tools, like vuei18n, axios and others.
   <br></br>
   At the end of my work, I would like to present the core skills of a junior frontend developer and pretend to be smart and skilled.
+  </H6>
   <br></br>
   <H6 align="left">Author: @kosztinattila
     <br></br>
-  Collaborator: @barnabastoth<H6>
+  Collaborator: @barnabastoth
+  </H6>
