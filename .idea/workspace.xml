@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb9fd8-46ef-48b9-9d3a-186f1c6e9ec8" name="Default Changelist" comment="" />
+    <list default="true" id="13cb9fd8-46ef-48b9-9d3a-186f1c6e9ec8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testserv3/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/testserv3/src/router/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Attila Kosztin" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feat/header" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -14,6 +31,7 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1fqOvNVgjAGnNVvHaTJ8Ox8sZnq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -21,8 +39,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/testserv3/src/components/Selling" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -35,17 +55,10 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Buying\Layout" />
-      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Buying" />
-      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Cart\Layout" />
-      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Cart" />
-      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Header\Layout" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Selling" />
       <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Home" />
@@ -53,21 +66,13 @@
       <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Footer" />
       <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Cart" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\assets" />
+      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3" />
+      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Buying\Layout" />
+      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Buying" />
+      <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Cart\Layout" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -79,32 +84,107 @@
       <updated>1596942388383</updated>
       <workItem from="1596942389400" duration="306000" />
       <workItem from="1596942717366" duration="9220000" />
+      <workItem from="1596953635371" duration="9315000" />
+      <workItem from="1596966410875" duration="59000" />
+      <workItem from="1596966480925" duration="157000" />
+      <workItem from="1596966649169" duration="207000" />
+      <workItem from="1596966870912" duration="852000" />
+      <workItem from="1596967734353" duration="67000" />
+      <workItem from="1596967810055" duration="169000" />
+      <workItem from="1596968012061" duration="3707000" />
     </task>
+    <task id="LOCAL-00001" summary="First settings&#10;- Configuring routes&#10;- Working on README.md">
+      <created>1596966142336</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1596966142336</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changes on README.md">
+      <created>1596970850041</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1596970850041</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changes on README.md">
+      <created>1596970962412</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1596970962412</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First settings&#10;- Configuring routes&#10;- Working on README.md" />
+    <MESSAGE value="Changes on README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes on README.md" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="161" key="#Plugins" timestamp="1596966507182">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="161" key="#Plugins/0.0.1920.1040@0.0.1920.1040" timestamp="1596966507182" />
     <state x="440" y="94" key="#Project_Structure" timestamp="1596942402579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1596942402579" />
+    <state x="461" y="348" key="#Template_Data_Languages" timestamp="1596964502295">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="348" key="#Template_Data_Languages/0.0.1920.1040@0.0.1920.1040" timestamp="1596964502295" />
     <state x="724" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596953519441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="724" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596953519441" />
+    <state x="587" y="170" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1596953651083">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="587" y="170" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596953651083" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596946100892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596946100892" />
+    <state x="585" y="0" key="CommitChangelistDialog2" timestamp="1596970962045">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596970962045" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596942693941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596942693941" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1596953622649">
+    <state x="836" y="422" key="Github.ShareDialog" timestamp="1596961431192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596953622649" />
+    <state x="836" y="422" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596961431192" />
+    <state x="734" y="138" key="Github.UntrackedFilesDialog" timestamp="1596954362316">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="734" y="138" key="Github.UntrackedFilesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596954362316" />
+    <state x="500" y="155" key="SettingsEditor" timestamp="1596967973405">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="500" y="155" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596967973405" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1596970967370">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596970967370" />
+    <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596965522761">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596965522761" />
+    <state x="790" y="311" key="svn.repositoryBrowser" timestamp="1596953908206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="790" y="311" key="svn.repositoryBrowser/0.0.1920.1040@0.0.1920.1040" timestamp="1596953908206" />
   </component>
 </project>
