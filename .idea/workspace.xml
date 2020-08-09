@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13cb9fd8-46ef-48b9-9d3a-186f1c6e9ec8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testserv3/src/assets/tiki.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testserv3/src/assets/tiki2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/testserv3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/testserv3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testserv3/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/testserv3/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testserv3/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/testserv3/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testserv3/src/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/testserv3/src/router/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +42,7 @@
     <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/testserv3/src/components/Selling" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,7 +55,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -78,21 +74,6 @@
       <recent name="C:\Users\Kosztin Attila\IdeaProjects\testserv3\testserv3\src\components\Cart\Layout" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -103,12 +84,30 @@
       <updated>1596942388383</updated>
       <workItem from="1596942389400" duration="306000" />
       <workItem from="1596942717366" duration="9220000" />
-      <workItem from="1596953635371" duration="9063000" />
+      <workItem from="1596953635371" duration="9315000" />
+      <workItem from="1596966410875" duration="59000" />
+      <workItem from="1596966480925" duration="157000" />
+      <workItem from="1596966649169" duration="207000" />
+      <workItem from="1596966870912" duration="852000" />
+      <workItem from="1596967734353" duration="67000" />
+      <workItem from="1596967810055" duration="169000" />
+      <workItem from="1596968012061" duration="2662000" />
     </task>
+    <task id="LOCAL-00001" summary="First settings&#10;- Configuring routes&#10;- Working on README.md">
+      <created>1596966142336</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1596966142336</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First settings&#10;- Configuring routes&#10;- Working on README.md" />
@@ -116,10 +115,10 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="161" key="#Plugins" timestamp="1596954375379">
+    <state x="552" y="161" key="#Plugins" timestamp="1596966507182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="161" key="#Plugins/0.0.1920.1040@0.0.1920.1040" timestamp="1596954375379" />
+    <state x="552" y="161" key="#Plugins/0.0.1920.1040@0.0.1920.1040" timestamp="1596966507182" />
     <state x="440" y="94" key="#Project_Structure" timestamp="1596942402579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -140,10 +139,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596946100892" />
-    <state x="585" y="0" key="CommitChangelistDialog2" timestamp="1596966112649">
+    <state x="585" y="0" key="CommitChangelistDialog2" timestamp="1596966141909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596966112649" />
+    <state x="585" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596966141909" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596942693941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -156,14 +155,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="734" y="138" key="Github.UntrackedFilesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596954362316" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1596960659480">
+    <state x="500" y="155" key="SettingsEditor" timestamp="1596967973405">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596960659480" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1596962218032">
+    <state x="500" y="155" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596967973405" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1596966255589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596962218032" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596966255589" />
     <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596965522761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
