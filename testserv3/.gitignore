@@ -2,6 +2,7 @@
 .thumbs.db
 node_modules
 .env
+workspace.xml
 
 # Quasar core related directories
 .quasar
