@@ -1,8 +1,8 @@
 <div>
-  <img align="left" src="../src/assets/tiki2.png" alt="">
+  <img align="left" src="./testserv3/src/assets/tiki2.png" alt="">
 </div>
 <div>
-<img align="right" src="../src/assets/tiki2.png" alt="">
+<img align="right" src="./testserv3/src/assets/tiki2.png" alt="">
 </div>
   <H2 align="center">Project: Learning Vue.JS/Quasar</H2>
   <H5>Greetings!</H5>
