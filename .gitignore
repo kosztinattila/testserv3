@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+.editorconfig
+.eslintignore
+.eslintrc.js
+public/
+src/pages/
+src/store/store-flag.d.ts
