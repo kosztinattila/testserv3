@@ -1,17 +1,25 @@
 <template>
-  <div class="row wrap">
+  <div class="row main justify-evenly">
 
-    <div class="col-md-6 col-xs-12 constructor">
+    <div class="column constructor">
 
       <p>Product Constructor</p>
       <q-form @submit="uploadProduct">
-        <q-input class="input" outlined label="Product name" v-model="productName"
+        <div class="row">
+        <q-input class="input col-9" outlined label="Product name" v-model="productName"
                  :rules="[ val => val && val.length > 4 || 'Please type something']"/>
-        <q-input class="input" outlined label="Product price" v-model="productPrice"
+        <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
+        </div>
+        <div class="row">
+        <q-input class="input col-9" outlined label="Product price" v-model="productPrice"
                  :rules="[ val => val && val.length > 4 || 'Please type something']"/>
-        <q-select outlined :options="options" label="Quantity"
+        <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
+        </div>
+        <div class="row no-wrap">
+        <q-select class="col-9 select" outlined :options="options" label="Quantity"
                   v-model="productQuantity" required/>
-
+          <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
+        </div>
       </q-form>
       <form>
         <div>
@@ -26,30 +34,23 @@
       </form>
     </div>
 
-    <div class="col-md-2 col-sm-12">
-
-    </div>
-
-    <div class="col-md-6 col-sm-12 preview">
-      <form class="preview-form full-width">
+    <div class="row preview">
+      <form class="col preview-form">
         <p>Preview</p>
-        <div class="profile-image col" v-if="image">
+        <div class="profile-image row justify-center" v-if="image">
           <img :src="image" alt=""/>
         </div>
-        <div>{{ productName }}</div>
-        <div style="color: darkgreen" v-if="productQuantity>0">In Stock</div>
-        <div style="color: firebrick" v-else-if="productQuantity">Out of Stock</div>
+        <div class="form-element">{{ productName }}</div>
+        <div class="form-element" style="color: darkgreen" v-if="productQuantity>0">In Stock</div>
+        <div class="form-element" style="color: firebrick" v-else-if="productQuantity">Out of Stock</div>
         <div>
-          <div v-if="productPrice">{{ productPrice + " Ft" }}</div>
+        <div class="form-element" v-if="productPrice">{{ productPrice + " Ft" }}</div>
         </div>
-        <div class="row">
-          <q-btn class="details col" style="background: goldenrod; color: white" label="Details"/>
-          <div class="col-1">
-
-          </div>
-          <q-btn class="addToBasket col" v-if="productQuantity>0" style="background: goldenrod; color: white"
+        <div class="row justify-evenly">
+          <q-btn class="details" style="background: goldenrod; color: white" label="Details"/>
+          <q-btn class="addToBasket" v-if="productQuantity>0" style="background: goldenrod; color: white"
                  label="Add to Basket"/>
-          <q-btn class="notifyMe col" v-else style="background: goldenrod; color: white"
+          <q-btn class="notifyMe" v-else style="background: goldenrod; color: white"
                  label="Notify me"/>
         </div>
       </form>
@@ -124,50 +125,34 @@ export default {
 </script>
 
 <style scoped>
-.row {
-  justify-content: center;
+
+.main {
   min-width: 250px
 }
 
 .constructor, .preview {
   margin-top: 5rem;
   width: 20rem;
-
-}
-
-.preview {
-  position: relative;
-}
-
-h3 {
-  margin-top: auto;
-  margin-left: auto;
+  border: #1D1D1D 5px;
 }
 
 form {
-  text-align: left;
   margin-bottom: 1rem;
 }
 
 img {
-  padding-left: 3rem;
-  padding-right: 3rem;
   max-width: 15rem;
-  max-height: 10rem;
-}
-
-.profile-image {
-  display: flex;
-  justify-content: center;
-
-}
-
-.delete-profile-image {
-  margin: auto;
   margin-bottom: 1rem;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+}
 
+.add-button {
+  max-width: 3.5rem;
+  max-height: 3.5rem;
+}
+p {
+  text-transform: uppercase;
+}
+.form-element {
+  margin-bottom: .25rem;
 }
 </style>
