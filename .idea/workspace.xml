@@ -35,9 +35,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13cb9fd8-46ef-48b9-9d3a-186f1c6e9ec8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testserv3/src/store/store-flag.d.ts" afterDir="false" />
-    </list>
+    <list default="true" id="13cb9fd8-46ef-48b9-9d3a-186f1c6e9ec8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
