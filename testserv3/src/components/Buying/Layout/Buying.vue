@@ -1,22 +1,22 @@
 <template>
   <div class="row main justify-evenly">
 
-    <div class="column constructor">
+    <div class="constructor">
 
       <p>Product Constructor</p>
       <q-form @submit="uploadProduct">
-        <div class="row">
-        <q-input class="input col-9" outlined label="Product name" v-model="productName"
-                 :rules="[ val => val && val.length > 4 || 'Please type something']"/>
-        <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
-        </div>
-        <div class="row">
-        <q-input class="input col-9" outlined label="Product price" v-model="productPrice"
+        <div class="row no-wrap">
+        <q-input class="fit" outlined label="Product name" v-model="productName"
                  :rules="[ val => val && val.length > 4 || 'Please type something']"/>
         <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
         </div>
         <div class="row no-wrap">
-        <q-select class="col-9 select" outlined :options="options" label="Quantity"
+        <q-input class="fit" outlined label="Product price" v-model="productPrice"
+                 :rules="[ val => val && val.length > 4 || 'Please type something']"/>
+        <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
+        </div>
+        <div class="row no-wrap">
+        <q-select class="fit" outlined :options="options" label="Quantity"
                   v-model="productQuantity" required/>
           <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
         </div>
@@ -34,26 +34,30 @@
       </form>
     </div>
 
-    <div class="row preview">
+    <div class="preview">
+      <p>Preview</p>
+      <q-card>
       <form class="col preview-form">
-        <p>Preview</p>
         <div class="profile-image row justify-center" v-if="image">
           <img :src="image" alt=""/>
         </div>
-        <div class="form-element">{{ productName }}</div>
-        <div class="form-element" style="color: darkgreen" v-if="productQuantity>0">In Stock</div>
-        <div class="form-element" style="color: firebrick" v-else-if="productQuantity">Out of Stock</div>
+        <div class="form-element row justify-center">{{ productName }}</div>
+        <div class="form-element row justify-center" style="color: darkgreen" v-if="productQuantity>0">In Stock</div>
+        <div class="form-element row justify-center" style="color: firebrick" v-else-if="productQuantity">Out of Stock</div>
         <div>
-        <div class="form-element" v-if="productPrice">{{ productPrice + " Ft" }}</div>
+        <div class="form-element row justify-center" v-if="productPrice">{{ productPrice + " Ft" }}</div>
         </div>
         <div class="row justify-evenly">
-          <q-btn class="details" style="background: goldenrod; color: white" label="Details"/>
-          <q-btn class="addToBasket" v-if="productQuantity>0" style="background: goldenrod; color: white"
+          <q-btn class="addToBasket" v-if="productQuantity>0" style="background: goldenrod; color: white; margin-bottom: 1rem"
                  label="Add to Basket"/>
-          <q-btn class="notifyMe" v-else style="background: goldenrod; color: white"
+          <q-btn v-else-if="productQuantity" class="notifyMe" v-else style="background: goldenrod; color: white; margin-bottom: 1rem"
                  label="Notify me"/>
         </div>
       </form>
+      </q-card>
+    </div>
+    <div class="col-9 created">
+      <p>Recently created products</p>
     </div>
   </div>
 </template>
@@ -90,7 +94,7 @@ export default {
     },
     uploadProduct () {
       this.$q.notify({
-        message: 'Successsful upload!',
+        message: 'Successful upload!',
         color: 'primary',
         avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
         actions: [
@@ -133,7 +137,8 @@ export default {
 .constructor, .preview {
   margin-top: 5rem;
   width: 20rem;
-  border: #1D1D1D 5px;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 form {
@@ -141,8 +146,9 @@ form {
 }
 
 img {
-  max-width: 15rem;
-  margin-bottom: 1rem;
+  width: 10rem;
+  height: 13rem;
+  margin: 1rem;
 }
 
 .add-button {
@@ -154,5 +160,8 @@ p {
 }
 .form-element {
   margin-bottom: .25rem;
+}
+.created {
+  margin-top: 5rem;
 }
 </style>
