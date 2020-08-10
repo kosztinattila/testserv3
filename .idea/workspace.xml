@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13cb9fd8-46ef-48b9-9d3a-186f1c6e9ec8" name="Default Changelist" comment="Changes on Buying.vue&#10;-Dead CSS code has been removed or turned into usable Quasar classes&#10;-Divs are now responsive&#10;-&quot;+&quot; buttons have been added to the Constructor input fields&#10;-The &quot;Constructor&quot; and &quot;Preview&quot; labels are transformed into uppercase letters">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testserv3/src/components/Buying/Layout/Buying.vue" beforeDir="false" afterPath="$PROJECT_DIR$/testserv3/src/components/Buying/Layout/Buying.vue" afterDir="false" />
-    </list>
+    <list default="true" id="13cb9fd8-46ef-48b9-9d3a-186f1c6e9ec8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -26,7 +14,6 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1fqOvNVgjAGnNVvHaTJ8Ox8sZnq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -83,12 +70,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
-  </component>
   <component name="WindowStateProjectService">
     <state x="440" y="94" key="#Project_Structure" timestamp="1596942402579">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -102,37 +83,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596946100892" />
-    <state x="95" y="12" width="1487" height="1028" key="CommitChangelistDialog2" timestamp="1597077601363">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="95" y="12" width="1487" height="1028" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1597077601363" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596942693941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596942693941" />
-    <state width="938" height="275" key="GridCell.Tab.0.bottom" timestamp="1597031483700">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597031483700" />
-    <state width="938" height="275" key="GridCell.Tab.0.center" timestamp="1597031483700">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597031483700" />
-    <state width="938" height="275" key="GridCell.Tab.0.left" timestamp="1597031483699">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597031483699" />
-    <state width="938" height="275" key="GridCell.Tab.0.right" timestamp="1597031483700">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597031483700" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1596953622649">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596953622649" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597026732259">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597026732259" />
   </component>
 </project>
