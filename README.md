@@ -1,4 +1,4 @@
-<div style="color: #73C2FB">
+<div style="color: #73C2FB;">
   <img align="left" src="./testserv3/src/assets/tiki2.png" alt="">
 </div>
 <div>
