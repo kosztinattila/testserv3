@@ -5,7 +5,7 @@
 <img align="right" src="./testserv3/src/assets/tiki2.png" alt="">
 </div>
   <H2 align="center">Project: Learning Vue.JS/Quasar</H2>
- <H5><span style="color:blue">Greetings!</span></H5>
+ <span style="color:blue">Greetings!</span>
   <H6> In this project, I attempt to create a functioning webstore and use all the neccessary tools, like vuei18n, axios and others.
   <br>
   At the end of my work, I would like to present the core skills of a junior frontend developer and pretend to be smart and skilled.
