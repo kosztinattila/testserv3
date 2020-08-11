@@ -6,19 +6,22 @@
       <p>Product Constructor</p>
       <q-form @submit="uploadProduct">
         <div class="row no-wrap">
-        <q-input class="fit" outlined label="Product name" v-model="productName"
-                 :rules="[ val => val && val.length > 4 || 'Please type something']"/>
-        <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
+          <q-input class="fit" outlined label="Product name" v-model="newProductName"
+                   :rules="[ val => val && val.length > 4 || 'Please type something']"/>
+          <q-btn @click="addProductName" class="add-button" unelevated size="lg"
+                 style="background: goldenrod; color: white" label="+"/>
         </div>
         <div class="row no-wrap">
-        <q-input class="fit" outlined label="Product price" v-model="productPrice"
-                 :rules="[ val => val && val.length > 4 || 'Please type something']"/>
-        <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
+          <q-input class="fit" outlined label="Product price" v-model="newProductPrice"
+                   :rules="[ val => val && val.length > 4 || 'Please type something']"/>
+          <q-btn @click="addProductPrice" class="add-button" unelevated size="lg"
+                 style="background: goldenrod; color: white" label="+"/>
         </div>
         <div class="row no-wrap">
-        <q-select class="fit" outlined :options="options" label="Quantity"
-                  v-model="productQuantity" required/>
-          <q-btn class="add-button" unelevated size="lg" style="background: goldenrod; color: white" label="+" />
+          <q-select class="fit" outlined :options="options" label="Quantity"
+                    v-model="newProductQuantity" required/>
+          <q-btn @click="addProductQuantity" class="add-button" unelevated size="lg"
+                 style="background: goldenrod; color: white" label="+"/>
         </div>
       </q-form>
       <form>
@@ -36,24 +39,34 @@
 
     <div class="preview">
       <p>Preview</p>
-      <q-card>
-      <form class="col preview-form">
-        <div class="profile-image row justify-center" v-if="image">
-          <img :src="image" alt=""/>
-        </div>
-        <div class="form-element row justify-center">{{ productName }}</div>
-        <div class="form-element row justify-center" style="color: darkgreen" v-if="productQuantity>0">In Stock</div>
-        <div class="form-element row justify-center" style="color: firebrick" v-else-if="productQuantity">Out of Stock</div>
-        <div>
-        <div class="form-element row justify-center" v-if="productPrice">{{ productPrice + " Ft" }}</div>
-        </div>
-        <div class="row justify-evenly">
-          <q-btn class="addToBasket" v-if="productQuantity>0" style="background: goldenrod; color: white; margin-bottom: 1rem"
-                 label="Add to Basket"/>
-          <q-btn v-else-if="productQuantity" class="notifyMe" v-else style="background: goldenrod; color: white; margin-bottom: 1rem"
-                 label="Notify me"/>
-        </div>
-      </form>
+      <q-card
+          v-if="productName[productName.length-1] || productPrice[productPrice.length-1] || productQuantity[productQuantity.length-1] || image[image.length - 1]">
+        <form class="col preview-form">
+          <div class="profile-image row justify-center" v-if="image[image.length - 1]">
+            <img id="imgSrc" :src="image" alt=""/>
+          </div>
+          <div class="form-element row justify-center">{{ productName[productName.length - 1] }}</div>
+          <div class="form-element row justify-center" style="color: darkgreen"
+               v-if="productQuantity[productQuantity.length-1]>0">In Stock
+          </div>
+          <div class="form-element row justify-center" style="color: firebrick"
+               v-else-if="productQuantity[productQuantity.length-1]">Out of
+            Stock
+          </div>
+          <div>
+            <div class="form-element row justify-center" v-if="productPrice[productPrice.length-1]">
+              {{ productPrice[productPrice.length - 1] + " Ft" }}
+            </div>
+          </div>
+          <div class="row justify-evenly">
+            <q-btn class="addToBasket" v-if="productQuantity[productQuantity.length-1]>0"
+                   style="background: goldenrod; color: white; margin-bottom: 1rem"
+                   label="Add to Basket"/>
+            <q-btn v-else-if="productQuantity[productQuantity.length-1]" class="notifyMe" v-else
+                   style="background: goldenrod; color: white; margin-bottom: 1rem"
+                   label="Notify me"/>
+          </div>
+        </form>
       </q-card>
     </div>
     <div class="col-9 created">
@@ -67,21 +80,105 @@ export default {
   name: 'buying',
   data: () => ({
     id: '1',
-    image: null,
-    productDetails: 'Details',
-    productPrice: '',
+    image: "",
+    newImage: null,
+    productPrice: [],
+    newProductPrice: null,
     options: ['0', '1', '2', '3', '4', '5'],
-    productName: localStorage.getItem('storedData'),
-    productQuantity: ''
+    productName: [],
+    newProductName: null,
+    productQuantity: [],
+    newProductQuantity: null,
   }),
+  mounted() {
+    if (localStorage.getItem('productName')) {
+      try {
+        this.productName = JSON.parse(localStorage.getItem('productName'));
+      } catch (e) {
+        localStorage.removeItem('productName');
+      }
+    }
+    if (localStorage.getItem('productPrice')) {
+      try {
+        this.productPrice = JSON.parse(localStorage.getItem('productPrice'));
+      } catch (e) {
+        localStorage.removeItem('productPrice');
+      }
+    }
+    if (localStorage.getItem('productQuantity')) {
+      try {
+        this.productQuantity = JSON.parse(localStorage.getItem('productQuantity'));
+      } catch (e) {
+        localStorage.removeItem('productQuantity');
+      }
+    }
+    if (localStorage.getItem('productPrice')) {
+      try {
+        this.productPrice = JSON.parse(localStorage.getItem('productPrice'));
+      } catch (e) {
+        localStorage.removeItem('productPrice');
+      }
+    }
+  },
   methods: {
-    onFileChange (e) {
+    addProductName() {
+      if (!this.newProductName) {
+        return;
+      }
+
+      this.productName.push(this.newProductName);
+      this.newProductName = '';
+      this.saveProductName();
+    },
+    removeProductName(x) {
+      this.productName.splice(x, 1);
+      this.saveProductName();
+    },
+    saveProductName() {
+      const parsedProductName = JSON.stringify(this.productName);
+      localStorage.setItem('productName', parsedProductName);
+    },
+    addProductQuantity() {
+      if (!this.newProductQuantity) {
+        return;
+      }
+
+      this.productQuantity.push(this.newProductQuantity);
+      this.newProductQuantity = '';
+      this.saveProductQuantity();
+    },
+    removeProductQuantity(x) {
+      this.productQuantity.splice(x, 1);
+      this.saveProductQuantity();
+    },
+    saveProductQuantity() {
+      const parsedProductQuantity = JSON.stringify(this.productQuantity);
+      localStorage.setItem('productQuantity', parsedProductQuantity);
+    },
+    addProductPrice() {
+      if (!this.newProductPrice) {
+        return;
+      }
+
+      this.productPrice.push(this.newProductPrice);
+      this.newProductPrice = '';
+      this.saveProductPrice();
+    },
+    removeProductPrice(x) {
+      this.productPrice.splice(x, 1);
+      this.saveProductPrice();
+    },
+    saveProductPrice() {
+      const parsedProductPrice = JSON.stringify(this.productPrice);
+      localStorage.setItem('productPrice', parsedProductPrice);
+    },
+    onFileChange(e) {
       const files = e.target.files || e.dataTransfer.files
       if (!files.length) {
       }
       this.createImage(files[0])
     },
-    createImage (file) {
+    createImage(file) {
       const reader = new FileReader()
 
       reader.onload = (e) => {
@@ -89,42 +186,43 @@ export default {
       }
       reader.readAsDataURL(file)
     },
+
     removeImage: function () {
-      this.image = ''
+      this.image = "";
     },
-    uploadProduct () {
+    uploadProduct() {
       this.$q.notify({
-        message: 'Successful upload!',
-        color: 'primary',
-        avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
-        actions: [
-          {
-            label: 'Reply',
-            color: 'yellow',
-            handler: () => {
-              this.$router.push('/')
-            }
-          },
-          {
-            label: 'Dismiss',
-            color: 'white',
-            handler: () => { /* ... */
-            }
-          }
-        ]
-      })
+                       message: 'Successful upload!',
+                       color: 'primary',
+                       avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
+                       actions: [
+                         {
+                           label: 'Reply',
+                           color: 'yellow',
+                           handler: () => {
+                             this.$router.push('/')
+                           }
+                         },
+                         {
+                           label: 'Dismiss',
+                           color: 'white',
+                           handler: () => { /* ... */
+                           }
+                         }
+                       ]
+                     })
     }
   },
   computed: {
     data: {
-      get () {
+      get() {
         return localStorage.getItem('products')
       },
-      set (val) {
+      set(val) {
         localStorage.setItem('products', val)
       }
     }
-  }
+  },
 }
 </script>
 
@@ -155,12 +253,15 @@ img {
   max-width: 3.5rem;
   max-height: 3.5rem;
 }
+
 p {
   text-transform: uppercase;
 }
+
 .form-element {
   margin-bottom: .25rem;
 }
+
 .created {
   margin-top: 5rem;
 }
