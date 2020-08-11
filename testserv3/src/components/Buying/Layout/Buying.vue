@@ -4,7 +4,7 @@
     <div class="constructor">
 
       <p>Product Constructor</p>
-      <q-form @submit="uploadProduct">
+      <q-form>
         <div class="row no-wrap">
           <q-input class="fit" outlined label="Product name" v-model="newProductName"
                    :rules="[ val => val && val.length > 4 || 'Please type something']"/>
@@ -30,9 +30,11 @@
             <q-btn @click="removeImage" style="background: goldenrod; color: white" label="Remove"/>
           </div>
           <div v-if="!image">
-            <input type="file" class="change-profile-image" @change="onFileChange" ref="fileInput"
+            <input type="file" class="pick-image" @change="onFilePicked" ref="fileInput"
                    accept="image/*"/>
+            <q-btn @click="onPickFile" v-model="image" style="background: goldenrod; color: white" label="Select"/>
           </div>
+          <q-btn @click="addImage" v-model="image" style="background: goldenrod; color: white" label="Add"/>
         </div>
       </form>
     </div>
@@ -40,10 +42,10 @@
     <div class="preview">
       <p>Preview</p>
       <q-card
-          v-if="productName[productName.length-1] || productPrice[productPrice.length-1] || productQuantity[productQuantity.length-1] || image[image.length - 1]">
+          v-if="productName[productName.length-1] || productPrice[productPrice.length-1] || productQuantity[productQuantity.length-1] || imageURL">
         <form class="col preview-form">
-          <div class="profile-image row justify-center" v-if="image[image.length - 1]">
-            <img id="imgSrc" :src="image" alt=""/>
+          <div class="profile-image row justify-center" v-if="imageURL">
+            <img :src="imageURL" alt=""/>
           </div>
           <div class="form-element row justify-center">{{ productName[productName.length - 1] }}</div>
           <div class="form-element row justify-center" style="color: darkgreen"
@@ -62,14 +64,14 @@
             <q-btn class="addToBasket" v-if="productQuantity[productQuantity.length-1]>0"
                    style="background: goldenrod; color: white; margin-bottom: 1rem"
                    label="Add to Basket"/>
-            <q-btn v-else-if="productQuantity[productQuantity.length-1]" class="notifyMe" v-else
+            <q-btn v-else-if="productQuantity[productQuantity.length-1]" class="notifyMe"
                    style="background: goldenrod; color: white; margin-bottom: 1rem"
                    label="Notify me"/>
           </div>
         </form>
       </q-card>
     </div>
-    <div class="col-9 created">
+    <div class="col-9 created justify-center">
       <p>Recently created products</p>
     </div>
   </div>
@@ -80,8 +82,8 @@ export default {
   name: 'buying',
   data: () => ({
     id: '1',
-    image: "",
-    newImage: null,
+    image: null,
+    imageURL: [],
     productPrice: [],
     newProductPrice: null,
     options: ['0', '1', '2', '3', '4', '5'],
@@ -117,6 +119,13 @@ export default {
         this.productPrice = JSON.parse(localStorage.getItem('productPrice'));
       } catch (e) {
         localStorage.removeItem('productPrice');
+      }
+    }
+    if (localStorage.getItem('image')) {
+      try {
+        this.imageURL = JSON.parse(localStorage.getItem('image'));
+      } catch (e) {
+        localStorage.removeItem('image');
       }
     }
   },
@@ -172,7 +181,22 @@ export default {
       const parsedProductPrice = JSON.stringify(this.productPrice);
       localStorage.setItem('productPrice', parsedProductPrice);
     },
-    onFileChange(e) {
+    addImage() {
+      if (!this.imageURL) {
+        return;
+      }
+
+      this.saveImage();
+    },
+    removefffImage(x) {
+      this.image.splice(x, 1);
+      this.saveProductName();
+    },
+    saveImage() {
+      const parsedImage = JSON.stringify(this.imageURL);
+      localStorage.setItem('image', parsedImage);
+    },
+    /*onFileChange(e) {
       const files = e.target.files || e.dataTransfer.files
       if (!files.length) {
       }
@@ -185,12 +209,26 @@ export default {
         this.image = e.target.result
       }
       reader.readAsDataURL(file)
-    },
+    },*/
 
     removeImage: function () {
       this.image = "";
     },
-    uploadProduct() {
+    onPickFile() {
+      this.$refs.fileInput.click()
+    },
+    onFilePicked(event) {
+      const files = event.target.files
+      let filename = files[0].name;
+      if (filename.lastIndexOf('.') <= 0) {
+        return alert("Please add a valid file!")
+      }
+      const fileReader = new FileReader()
+      fileReader.addEventListener("load", () => {
+        this.imageURL = fileReader.result
+      })
+      fileReader.readAsDataURL(files[0])
+      this.image = files[0]
       this.$q.notify({
                        message: 'Successful upload!',
                        color: 'primary',
@@ -212,6 +250,7 @@ export default {
                        ]
                      })
     }
+
   },
   computed: {
     data: {
@@ -267,5 +306,8 @@ p {
 
 .created {
   margin-top: 5rem;
+}
+.pick-image {
+  display: none;
 }
 </style>
