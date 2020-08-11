@@ -55,7 +55,7 @@
           </div>
           <div>
             <div class="form-element row justify-center" v-if="productPrice[productPrice.length-1]">
-              {{ productPrice[productPrice.length - 1] + " Ft" }}
+              {{ appendCurrency }}
             </div>
           </div>
           <div class="row justify-evenly">
@@ -221,7 +221,10 @@ export default {
       set(val) {
         localStorage.setItem('products', val)
       }
-    }
+    },
+    appendCurrency() {
+        return  this.productPrice[this.productPrice.length-1] + " Ft"
+}
   },
 }
 </script>
