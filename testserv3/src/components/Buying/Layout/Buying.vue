@@ -26,15 +26,15 @@
       </q-form>
       <form>
         <div>
-          <div v-if="image" class="delete-profile-image">
+          <div v-if="imageURL">
             <q-btn @click="removeImage" style="background: goldenrod; color: white" label="Remove"/>
+            <q-btn @click="addImage" v-model="image" style="background: goldenrod; color: white; margin-left: 1rem;" label="Add"/>
           </div>
-          <div v-if="!image">
+          <div class="row justify-start" v-if="!imageURL">
             <input type="file" class="pick-image" @change="onFilePicked" ref="fileInput"
                    accept="image/*"/>
             <q-btn @click="onPickFile" v-model="image" style="background: goldenrod; color: white" label="Select"/>
           </div>
-          <q-btn @click="addImage" v-model="image" style="background: goldenrod; color: white" label="Add"/>
         </div>
       </form>
     </div>
@@ -83,7 +83,7 @@ export default {
   data: () => ({
     id: '1',
     image: null,
-    imageURL: [],
+    imageURL: null,
     productPrice: [],
     newProductPrice: null,
     options: ['0', '1', '2', '3', '4', '5'],
@@ -188,10 +188,10 @@ export default {
 
       this.saveImage();
     },
-    removefffImage(x) {
-      this.image.splice(x, 1);
+    /*removeImage(x) {
+      this.imageURL.splice(x, 1);
       this.saveProductName();
-    },
+    },*/
     saveImage() {
       const parsedImage = JSON.stringify(this.imageURL);
       localStorage.setItem('image', parsedImage);
@@ -211,8 +211,9 @@ export default {
       reader.readAsDataURL(file)
     },*/
 
-    removeImage: function () {
-      this.image = "";
+    removeImage() {
+      this.imageURL = null;
+      localStorage.removeItem("image");
     },
     onPickFile() {
       this.$refs.fileInput.click()
