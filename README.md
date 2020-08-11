@@ -10,8 +10,8 @@
   <br></br>
   At the end of my work, I would like to present the core skills of a junior frontend developer and pretend to be smart and skilled.
   </H6>
-  <br></br>
+  <br>
   <H6 align="left">Author: @kosztinattila
-    <br></br>
+    <br>
   Collaborator: @barnabastoth
   </H6>
