@@ -6,29 +6,24 @@
       <p>Product Constructor</p>
       <q-form>
         <div class="row no-wrap">
-          <q-input class="fit" outlined label="Product name" v-model="newProductName"
+          <q-input class="fit" outlined label="Product name" v-model="product.productName"
                    :rules="[ val => val && val.length > 4 || 'Please type something']"/>
-          <q-btn @click="addProductName" class="add-button" unelevated size="lg"
-                 style="background: goldenrod; color: white" label="+"/>
         </div>
         <div class="row no-wrap">
-          <q-input class="fit" outlined label="Product price" v-model="newProductPrice"
+          <q-input class="fit" outlined label="Product price" v-model="product.productPrice"
                    :rules="[ val => val && val.length > 4 || 'Please type something']"/>
-          <q-btn @click="addProductPrice" class="add-button" unelevated size="lg"
-                 style="background: goldenrod; color: white" label="+"/>
         </div>
         <div class="row no-wrap">
           <q-select class="fit" outlined :options="options" label="Quantity"
-                    v-model="newProductQuantity" required/>
-          <q-btn @click="addProductQuantity" class="add-button" unelevated size="lg"
-                 style="background: goldenrod; color: white" label="+"/>
+                    v-model="product.productQuantity" required/>
         </div>
       </q-form>
       <form>
         <div>
           <div v-if="imageURL">
             <q-btn @click="removeImage" style="background: goldenrod; color: white" label="Remove"/>
-            <q-btn @click="addImage" v-model="image" style="background: goldenrod; color: white; margin-left: 1rem;" label="Add"/>
+            <q-btn @click="addImage" v-model="product.imageURL" style="background: goldenrod; color: white; margin-left: 1rem;"
+                   label="Add"/>
           </div>
           <div class="row justify-start" v-if="!imageURL">
             <input type="file" class="pick-image" @change="onFilePicked" ref="fileInput"
@@ -36,35 +31,37 @@
             <q-btn @click="onPickFile" v-model="image" style="background: goldenrod; color: white" label="Select"/>
           </div>
         </div>
+        <q-btn @click="saveProduct" unelevated size="lg"
+               style="background: goldenrod; color: white" label="Save to FS"/>
       </form>
     </div>
 
     <div class="preview">
       <p>Preview</p>
       <q-card
-          v-if="productName[productName.length-1] || productPrice[productPrice.length-1] || productQuantity[productQuantity.length-1] || imageURL">
+          v-if="product.productName || product.productPrice || product.productQuantity || product.imageURL">
         <form class="col preview-form">
-          <div class="profile-image row justify-center" v-if="imageURL">
-            <img :src="imageURL" alt=""/>
+          <div class="profile-image row justify-center" v-if="product.imageURL">
+            <img :src="product.imageURL" alt=""/>
           </div>
-          <div class="form-element row justify-center">{{ productName[productName.length - 1] }}</div>
+          <div class="form-element row justify-center">{{ product.productName }}</div>
           <div class="form-element row justify-center" style="color: darkgreen"
-               v-if="productQuantity[productQuantity.length-1]>0">In Stock
+               v-if="product.productQuantity>0">In Stock
           </div>
           <div class="form-element row justify-center" style="color: firebrick"
-               v-else-if="productQuantity[productQuantity.length-1]">Out of
+               v-else-if="product.productQuantity">Out of
             Stock
           </div>
           <div>
-            <div class="form-element row justify-center" v-if="productPrice[productPrice.length-1]">
+            <div class="form-element row justify-center" v-if="product.productPrice">
               {{ appendCurrency }}
             </div>
           </div>
           <div class="row justify-evenly">
-            <q-btn class="addToBasket" v-if="productQuantity[productQuantity.length-1]>0"
+            <q-btn class="addToBasket" v-if="product.productQuantity>0"
                    style="background: goldenrod; color: white; margin-bottom: 1rem"
                    label="Add to Basket"/>
-            <q-btn v-else-if="productQuantity[productQuantity.length-1]" class="notifyMe"
+            <q-btn v-else-if="product.productQuantity" class="notifyMe"
                    style="background: goldenrod; color: white; margin-bottom: 1rem"
                    label="Notify me"/>
           </div>
@@ -78,16 +75,25 @@
 </template>
 
 <script>
+import { firebaseFS } from 'src/boot/firebase'
+
 export default {
   name: 'buying',
   data: () => ({
+    product: {
+      productName: null,
+      productPrice: null,
+      productQuantity: null,
+      imageURL: null
+
+    },
     id: '1',
     image: null,
     imageURL: null,
     productPrice: [],
     newProductPrice: null,
     options: ['0', '1', '2', '3', '4', '5'],
-    productName: [],
+    productName: "",
     newProductName: null,
     productQuantity: [],
     newProductQuantity: null,
@@ -143,9 +149,26 @@ export default {
       this.productName.splice(x, 1);
       this.saveProductName();
     },
-    saveProductName() {
-      const parsedProductName = JSON.stringify(this.productName);
-      localStorage.setItem('productName', parsedProductName);
+    saveProduct() {
+      firebaseFS.collection("products").add(this.product)
+          .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+      this.$q.notify({
+                       message: 'Successful upload!',
+                       color: 'goldenrod',
+                       actions: [
+                         {
+                           label: 'Dismiss',
+                           color: 'white',
+                           handler: () => { /* ... */
+                           }
+                         }
+                       ]
+                     })
     },
     addProductQuantity() {
       if (!this.newProductQuantity) {
@@ -230,26 +253,6 @@ export default {
       })
       fileReader.readAsDataURL(files[0])
       this.image = files[0]
-      this.$q.notify({
-                       message: 'Successful upload!',
-                       color: 'primary',
-                       avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
-                       actions: [
-                         {
-                           label: 'Reply',
-                           color: 'yellow',
-                           handler: () => {
-                             this.$router.push('/')
-                           }
-                         },
-                         {
-                           label: 'Dismiss',
-                           color: 'white',
-                           handler: () => { /* ... */
-                           }
-                         }
-                       ]
-                     })
     }
 
   },
@@ -263,8 +266,8 @@ export default {
       }
     },
     appendCurrency() {
-        return  this.productPrice[this.productPrice.length-1] + " Ft"
-}
+      return this.product.productPrice + " Ft"
+    }
   },
 }
 </script>
@@ -308,6 +311,7 @@ p {
 .created {
   margin-top: 5rem;
 }
+
 .pick-image {
   display: none;
 }

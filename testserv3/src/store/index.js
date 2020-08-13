@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import pathify from './pathify'
 
 import store from './store'
-// import example from './module-example'
+
 
 Vue.use(Vuex)
 
@@ -18,6 +19,7 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
+      plugins: [ pathify.plugin ],
       store
     },
 
