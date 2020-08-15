@@ -48,7 +48,7 @@
           <div class="form-element row justify-center" style="color: darkgreen"
                v-if="product.productQuantity>0">In Stock
           </div>
-          <div class="form-element row justify-center" style="color: firebrick"
+          <div class="form-element row justify-center" style="color: darkred"
                v-else-if="product.productQuantity">Out of
             Stock
           </div>
