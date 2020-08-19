@@ -2,8 +2,8 @@
 //import { RouterFactory } from 'meteor/akryum:vue-router2'
 // Components
 import Home from '/imports/ui/Home.vue'
-import Session from '/imports/ui/Session.vue'
-import Help from '/imports/ui/Help.vue'
+import Buying from '/imports/ui/Buying.vue'
+
 /*
 RouterFactory.configure(factory => {
     // Simple routes
@@ -28,19 +28,14 @@ RouterFactory.configure(factory => {
 */
 let routes = [
     {
-        path: '/',
-        name: 'home',
+        path: '*',
+        name: '',
         component: Home,
     },
     {
-        path: '/session',
-        name: 'session',
-        component: Session,
-    },
-    {
-        path: '/help',
-        name: 'help',
-        component: Help,
+        path: '/buying',
+        name: 'buying',
+        component: Buying,
     },
 ];
 

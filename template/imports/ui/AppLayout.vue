@@ -1,143 +1,287 @@
-<template name="appLayout">
+<template>
+  <q-layout view="hHh lpR fFf">
 
+    <q-header class="bg-primary text-white">
+    <main-header></main-header>
+    </q-header>
 
-    <q-layout ref="layout" view="LHr lpR lFr">
+    <q-page-container>
+      <router-view></router-view>
+    </q-page-container>
 
-        <q-header elevated class="bg-primary text-white">
-            <q-toolbar>
-                <q-btn
-                        flat round dense
-                        @click="showLeft = !showLeft"
-                        icon="menu"
-                />
+    <q-footer class="bg-grey-8 text-white">
+      <q-toolbar>
 
-                <q-toolbar-title>
-                    Layout Header
-                </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
 
-                <q-btn
-                        flat round dense
-                        @click="showRight = !showRight"
-                        icon="menu"
-                />
-            </q-toolbar>
-            <q-tabs>
-                <q-route-tab slot="title" icon="save" to="/" replace label="PubSub" />
-                <q-route-tab slot="title" icon="alarm" to="/session" replace label="Session" />
-                <q-route-tab slot="title" icon="help" to="/help" replace label="Help" />
-            </q-tabs>
-        </q-header>
-
-        <q-drawer side="left" v-model="showLeft">
-            <q-list no-border link inset-separator>
-                <q-item-label header>Essential Links</q-item-label>
-                <q-item clickable to="/">
-                    <q-item-section avatar>
-                        <q-icon color="primary" name="save" />
-                    </q-item-section>
-                    <q-item-section>PubSub</q-item-section>
-                </q-item>
-                <q-separator spaced inset="item" />
-                <q-item clickable to="/session">
-                    <q-item-section avatar>
-                        <q-icon color="primary" name="alarm" />
-                    </q-item-section>
-                    <q-item-section>Session</q-item-section>
-                </q-item>
-                <q-separator spaced inset="item" />
-                <q-item clickable to="/help">
-                    <q-item-section avatar>
-                        <q-icon color="primary" name="help" />
-                    </q-item-section>
-                    <q-item-section>Help</q-item-section>
-                </q-item>
-                <q-separator spaced inset="item" />
-            </q-list>
-        </q-drawer>
-
-        <q-drawer side="right" v-model="showRight">
-            <span>Right Drawer</span>
-        </q-drawer>
-
-        <q-page-container>
-            <router-view></router-view>
-        </q-page-container>
-
-        <q-footer>
-            <q-toolbar>
-                <q-toolbar-title>
-                    <span>Footer is here</span>
-                </q-toolbar-title>
-            </q-toolbar>
-        </q-footer>
-
-    </q-layout>
-
+  </q-layout>
 </template>
 
 <script>
+import header_main from '/imports/ui/Header.vue'
+//import {Meteor} from 'meteor/meteor';
+import {
+  QAjaxBar,
+  QAvatar,
+  QBadge,
+  QBanner,
+  QBar,
+  QBreadcrumbs,
+  QBreadcrumbsEl,
+  QBtnDropdown,
+  QBtnGroup,
+  QBtnToggle,
+  QBtn,
+  QCard,
+  QCardActions,
+  QCardSection,
+  QCarousel,
+  QCarouselControl,
+  QCarouselSlide,
+  QChatMessage,
+  QCheckbox,
+  QChip,
+  QCircularProgress,
+  QColor,
+  QDate,
+  QDialog,
+  QDrawer,
+  QEditor,
+  QExpansionItem,
+  QFab,
+  QFabAction,
+  QField,
+  QFile,
+  QFooter,
+  QForm,
+  QHeader,
+  QIcon,
+  QImg,
+  QInfiniteScroll,
+  QInnerLoading,
+  QInput,
+  QIntersection,
+  QItem,
+  QItemLabel,
+  QItemSection,
+  QList,
+  QKnob,
+  QLayout,
+  QLinearProgress,
+  QMarkupTable,
+  QMenu,
+  QNoSsr,
+  QOptionGroup,
+  QPageScroller,
+  QPageSticky,
+  QPage,
+  QPageContainer,
+  QPagination,
+  QParallax,
+  QPopupEdit,
+  QPopupProxy,
+  QPullToRefresh,
+  QRadio,
+  QRange,
+  QRating,
+  QResizeObserver,
+  QResponsive,
+  QScrollArea,
+  QScrollObserver,
+  QSelect,
+  QSeparator,
+  QSkeleton,
+  QSlideItem,
+  QSlideTransition,
+  QSlider,
+  QSpace,
+  QSpinner,
+  QSpinnerAudio,
+  QSpinnerBall,
+  QSpinnerBars,
+  QSpinnerComment,
+  QSpinnerCube,
+  QSpinnerDots,
+  QSpinnerFacebook,
+  QSpinnerGears,
+  QSpinnerGrid,
+  QSpinnerHearts,
+  QSpinnerHourglass,
+  QSpinnerInfinity,
+  QSpinnerIos,
+  QSpinnerOval,
+  QSpinnerPie,
+  QSpinnerPuff,
+  QSpinnerRadio,
+  QSpinnerRings,
+  QSpinnerTail,
+  QSplitter,
+  QStep,
+  QStepper,
+  QStepperNavigation,
+  QTabPanel,
+  QTabPanels,
+  QTable,
+  QTd,
+  QTh,
+  QTr,
+  QRouteTab,
+  QTab,
+  QTabs,
+  QTime,
+  QTimeline,
+  QTimelineEntry,
+  QToggle,
+  QToolbar,
+  QToolbarTitle,
+  QTooltip,
+  QUploader,
+  QUploaderAddTrigger,
+  QUploaderBase,
+  QVideo,
+  QVirtualScroll
 
-    //import {Meteor} from 'meteor/meteor';
+} from 'quasar';
+//See main.js for the global import of 'Quasar' and vue.use() method.
+//Don't move the 'Quasar' import from main.js - importing 'Quasar' later causes an error
+import "@quasar/extras/material-icons/material-icons.css";
+import "quasar/dist/quasar.min.css";
+import "quasar/dist/quasar.umd.min";
 
-    //See main.js for the global import of 'Quasar' and vue.use() method.
-    //Don't move the 'Quasar' import from main.js - importing 'Quasar' later causes an error
+// To make the material-icons appear, we also have to add links in the /public folder
+// to the web-font folder with the .css and .woff files
+// in node_modules/@quasar/extras/material-icons.
+//I find that this import for the material-icons needs to come after all the other quasar imports
 
+export default {
+  name: 'MainLayout',
 
+  components: {
+    'main-header': header_main,
+    QAjaxBar,
+    QAvatar,
+    QBadge,
+    QBanner,
+    QBar,
+    QBreadcrumbs,
+    QBreadcrumbsEl,
+    QBtnDropdown,
+    QBtnGroup,
+    QBtnToggle,
+    QBtn,
+    QCard,
+    QCardActions,
+    QCardSection,
+    QCarousel,
+    QCarouselControl,
+    QCarouselSlide,
+    QChatMessage,
+    QCheckbox,
+    QChip,
+    QCircularProgress,
+    QColor,
+    QDate,
+    QDialog,
+    QDrawer,
+    QEditor,
+    QExpansionItem,
+    QFab,
+    QFabAction,
+    QField,
+    QFile,
+    QFooter,
+    QForm,
+    QHeader,
+    QIcon,
+    QImg,
+    QInfiniteScroll,
+    QInnerLoading,
+    QInput,
+    QIntersection,
+    QItem,
+    QItemLabel,
+    QItemSection,
+    QList,
+    QKnob,
+    QLayout,
+    QLinearProgress,
+    QMarkupTable,
+    QMenu,
+    QNoSsr,
+    QOptionGroup,
+    QPageScroller,
+    QPageSticky,
+    QPage,
+    QPageContainer,
+    QPagination,
+    QParallax,
+    QPopupEdit,
+    QPopupProxy,
+    QPullToRefresh,
+    QRadio,
+    QRange,
+    QRating,
+    QResizeObserver,
+    QResponsive,
+    QScrollArea,
+    QScrollObserver,
+    QSelect,
+    QSeparator,
+    QSkeleton,
+    QSlideItem,
+    QSlideTransition,
+    QSlider,
+    QSpace,
+    QSpinner,
+    QSpinnerAudio,
+    QSpinnerBall,
+    QSpinnerBars,
+    QSpinnerComment,
+    QSpinnerCube,
+    QSpinnerDots,
+    QSpinnerFacebook,
+    QSpinnerGears,
+    QSpinnerGrid,
+    QSpinnerHearts,
+    QSpinnerHourglass,
+    QSpinnerInfinity,
+    QSpinnerIos,
+    QSpinnerOval,
+    QSpinnerPie,
+    QSpinnerPuff,
+    QSpinnerRadio,
+    QSpinnerRings,
+    QSpinnerTail,
+    QSplitter,
+    QStep,
+    QStepper,
+    QStepperNavigation,
+    QTabPanel,
+    QTabPanels,
+    QTable,
+    QTd,
+    QTh,
+    QTr,
+    QRouteTab,
+    QTab,
+    QTabs,
+    QTime,
+    QTimeline,
+    QTimelineEntry,
+    QToggle,
+    QToolbar,
+    QToolbarTitle,
+    QTooltip,
+    QUploader,
+    QUploaderAddTrigger,
+    QUploaderBase,
+    QVideo,
+    QVirtualScroll
+  },
+  data: function () {
+    return {}
+  }
 
-    import {
-        QLayout,
-        QHeader,
-        QFooter,
-        QDrawer,
-        QToolbar,
-        QToolbarTitle,
-        QTabs,
-        QRouteTab,
-        QBtn,
-        QIcon,
-        QItem,
-        QItemLabel,
-        QItemSection,
-        QList,
-        QPageContainer,
-        QSeparator
-    } from 'quasar';
-
-
-    // To make the material-icons appear, we also have to add links in the /public folder
-    // to the web-font folder with the .css and .woff files
-    // in node_modules/@quasar/extras/material-icons.
-    //I find that this import for the material-icons needs to come after all the other quasar imports
-    import "@quasar/extras/material-icons/material-icons.css";
-    import "quasar/dist/quasar.min.css";
-
-    export default {
-        data: function () {
-            return {
-                showLeft: false,
-                showRight: false
-            }
-        },
-        props: {
-            uiid: 'mat'
-        },
-        components: {
-            QLayout,
-            QHeader,
-            QFooter,
-            QDrawer,
-            QToolbar,
-            QToolbarTitle,
-            QTabs,
-            QRouteTab,
-            QBtn,
-            QIcon,
-            QItem,
-            QItemLabel,
-            QItemSection,
-            QList,
-            QPageContainer,
-            QSeparator
-        }
-    }
+}
 </script>
