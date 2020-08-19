@@ -75,7 +75,6 @@
 </template>
 
 <script>
-import { firebaseFS } from 'src/boot/firebase'
 
 export default {
   name: 'buying',
@@ -150,13 +149,13 @@ export default {
       this.saveProductName();
     },
     saveProduct() {
-      firebaseFS.collection("products").add(this.product)
+      /*firebaseFS.collection("products").add(this.product)
           .then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
           })
           .catch(function (error) {
             console.error("Error adding document: ", error);
-          });
+          });*/
       this.$q.notify({
                        message: 'Successful upload!',
                        color: 'goldenrod',
