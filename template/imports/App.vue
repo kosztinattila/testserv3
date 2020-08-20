@@ -2,7 +2,7 @@
   <q-layout view="hHh lpR fFf">
 
     <q-header class="bg-primary text-white">
-    <main-header></main-header>
+    <header></header>
     </q-header>
 
     <q-page-container>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import header_main from '/imports/ui/Header.vue'
+import Header from './components/Header'
 //import {Meteor} from 'meteor/meteor';
 import {
   QAjaxBar,
@@ -158,7 +158,7 @@ export default {
   name: 'MainLayout',
 
   components: {
-    'main-header': header_main,
+    Header,
     QAjaxBar,
     QAvatar,
     QBadge,

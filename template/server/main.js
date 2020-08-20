@@ -1,1 +1,1 @@
-import '/imports/startup/server';
+import '../imports/features/product/server'
